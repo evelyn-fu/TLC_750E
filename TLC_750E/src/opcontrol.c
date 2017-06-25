@@ -30,15 +30,15 @@
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
- unsigned char ch1;
- unsigned char ch2;
- unsigned char ch3;
- unsigned char ch4;
- unsigned char ch6U;
- unsigned char ch6D;
- unsigned char ch5U;
- unsigned char ch5D;
- unsigned char thresh = 20;
+ int ch1;
+ int ch2;
+ int ch3;
+ int ch4;
+ int ch6U;
+ int ch6D;
+ int ch5U;
+ int ch5D;
+ int thresh = 20;
 
 void operatorControl() {
 	while (1) {
@@ -98,7 +98,7 @@ void operatorControl() {
 			motorStop(MOTOR_BASE_RIGHT2_);
 		}
 
-    if((ch6U == 1) || (ch6D == 1)){
+/*		if((ch6U == 1) || (ch6D == 1)){
 			lift((ch6U-ch6D)*127);
 		}
 		else {
@@ -110,6 +110,6 @@ void operatorControl() {
 		}
 		else {
 			pince(0);
-		}
+		} */
 	}
 }

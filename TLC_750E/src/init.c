@@ -38,6 +38,6 @@ void initializeIO() {
  * can be implemented in this task if desired.
  */
 void initialize() {
-  encoderLeft = encoderInit(ENCODER_LEFT_TOP_, ENCODER_LEFT_BOT_, false);
-  encoderRight = encoderInit(ENCODER_RIGHT_TOP_, ENCODER_RIGHT_BOT_, false);
+  Encoder encoder_right = encoderInit(BASE_ENC_RIGHT_TOP, BASE_ENC_RIGHT_BOTTOM, false);
+  Encoder encoder_left = encoderInit(BASE_ENC_LEFT_TOP, BASE_ENC_LEFT_BOTTOM, false);
 }

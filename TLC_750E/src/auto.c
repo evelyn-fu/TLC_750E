@@ -11,7 +11,10 @@
  */
 
 #include "main.h"
+#include "variables.h"
 
+
+const int turnSpeed = 1;
 /*
  * Runs the user autonomous code. This function will be started in its own task with the default
  * priority and stack size whenever the robot is enabled via the Field Management System or the
@@ -26,6 +29,63 @@
  * The autonomous task may exit, unlike operatorControl() which should never exit. If it does
  * so, the robot will await a switch to another mode or disable/enable cycle.
  */
+
+//+ = fwd, - = bckwd
+void moveY(int mod) {
+  motorSet(MOTOR_BASE_LEFT1_, mod*127);
+  motorSet(MOTOR_BASE_LEFT2_, mod*127);
+  motorSet(MOTOR_BASE_RIGHT1_, mod*127);
+  motorSet(MOTOR_BASE_RIGHT2_, mod*127);
+}
+//+ = rght, - = lft
+void moveX(int mod) {
+  motorSet(MOTOR_BASE_LEFT1_, mod*127);
+  motorSet(MOTOR_BASE_LEFT2_, -mod*127);
+  motorSet(MOTOR_BASE_RIGHT1_, -mod*127);
+  motorSet(MOTOR_BASE_RIGHT2_, mod*127);
+}
+//+ = rght, - = lft
+void turn(int mod) {
+  motorSet(MOTOR_BASE_LEFT1_, mod*127);
+  motorSet(MOTOR_BASE_LEFT2_, mod*127);
+  motorSet(MOTOR_BASE_RIGHT1_, -mod*127);
+  motorSet(MOTOR_BASE_RIGHT2_, -mod*127);
+}
+
+int turnDur(int deg) {
+  return deg/turnSpeed;
+}
+//+ = up, - = dwn
+void lift(int mod) {
+  motorSet(MOTOR_LIFT_LEFT_, mod*127);
+  motorSet(MOTOR_LIFT_RIGHT, mod*127)
+}
+
+void pince(int mod) {
+  motorSet(MOTOR_PINCE_LEFT_, mod*127);
+  motorSet(MOTOR_PINCE_RIGHT_, mod*127);
+}
+
+void delayAndStop(int del) {
+  delay(del);
+  stopMotors();
+}
+/*Here is the pinnacle of shitty auton. Due to not using any sensors
+ *in our build, this is our alternative to it
+ */
 void autonomous() {
-  
+  moveY(1);
+  delayAndStop(3200);
+  turn(-1);
+  delayAndStop(turnDur(45));
+  moveY(1);
+  delayAndStop(2200);
+  lift(1);
+  delayAndStop(1000);
+  moveY(1);
+  delayAndStop(500);
+  moveY(-1);
+  delayAndStop(2700);
+  turn(1);
+  delayAndStop(turnDur(45));
 }
