@@ -9,8 +9,12 @@
 #define MOTOR_BASE_RIGHT2_ 3
 #define MOTOR_LIFT_LEFT_ 6
 #define MOTOR_LIFT_RIGHT_ 7
+<<<<<<< HEAD
 #define MOTOR_PINCE_LEFT_ 8
 #define MOTOR_PINCE_RIGHT_ 9
+=======
+#define MOTOR_PINCE_ 9
+>>>>>>> 00e4c2d3fa23ede678178f28594b597f2d82eda4
 #define BASE_ENC_RIGHT_TOP 1
 #define BASE_ENC_RIGHT_BOTTOM 2
 #define BASE_ENC_LEFT_TOP 3
